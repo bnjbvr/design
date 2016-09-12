@@ -82,10 +82,11 @@ Sends a message with arbitrary date to a given address path
 -   `dataLength` **i32** the length of data
 -   `resultOffset` **i32ptr** the memory offset to store the result data at (`bytes`)
 -   `resultLength` **i32** the maximal length of result data
+-   `callBackIndex` **i32** an index of the callback function
 
-**Returns**
+**Callback Signature**
 
-`result` **i32** Returns 1 or 0 depending on if the VM trapped on the message or not
+- `result` **i32** 1 or 0 depending on if the VM trapped on the message or not
 
 ## callDataCopy
 
@@ -128,10 +129,11 @@ data passed with the message call instruction or transaction.
 -   `dataLength` **i32** the length of data
 -   `resultOffset` **i32ptr** the memory offset to store the result data at (`bytes`)
 -   `resultLength` **i32** the maximal length of result data
+-   `callBackIndex` **i32** an index of the callback function
 
-**Returns**
+**Callback Signature**
 
-`result` **i32** Returns 1 or 0 depending on if the VM trapped on the message or not
+- `result` **i32** 1 or 0 depending on if the VM trapped on the message or not
 
 ## callDelegate
 
@@ -146,10 +148,10 @@ persisting the current values for sender and value.
 -   `dataLength` **i32** the length of data
 -   `resultOffset` **i32ptr** the memory offset to store the result data at (`bytes`)
 -   `resultLength` **i32** the maximal length of result data
+-   `callBackIndex` **i32** an index of the callback function
 
-**Returns**
-
-`result` **i32** Returns 1 or 0 depending on if the VM trapped on the message or not
+**Callback Signature**
+- `result` **i32** Returns 1 or 0 depending on if the VM trapped on the message or not
 
 ## storageStore
 
@@ -160,7 +162,7 @@ Store 256-bit a value in memory to persistent storage
 -   `pathOffest` **i32ptr** the memory offset to load the path from (`u256`)
 -   `valueOffset` **i32ptr** the memory offset to load the value from (`u256`)
 
-**Returns**
+**Returns**  
 
 *nothing*
 
@@ -172,8 +174,9 @@ Loads a 256-bit a value to memory from persistent storage
 
 -   `pathOffest` **i32ptr** the memory offset to load the path from (`u256`)
 -   `resultOffset` **i32ptr** the memory offset to store the result at (`u256`)
+-   `callBackIndex` **i32** an index of the callback function
 
-**Returns**
+**Callback Signature**  
 
 *nothing*
 
@@ -251,10 +254,11 @@ Creates a new contract with a given value.
 -   `dataOffset` **i32ptr** the memory offset to load the code for the new contract from (`bytes`)
 -   `length` **i32** the data length
 -   `resultOffset` **i32ptr** the memory offset to write the new contract address to (`address`)
+-   `callBackIndex` **i32** an index of the callback function
 
-**Returns**
+**Callback Signature**
+- `result` **i32** 1 or 0 depending on if the VM trapped on the message or not
 
-`result` **i32** Returns 1 or 0 depending on if the VM trapped on the message or not
 
 ## getBlockDifficulty
 
@@ -278,8 +282,9 @@ Copies the code of an account to memory.
 -   `resultOffset` **i32ptr** the memory offset to load the result into (`bytes`)
 -   `codeOffset` **i32** the offset within the code
 -   `length` **i32** the length of code to copy
+-   `callBackIndex` **i32** an index of the callback function
 
-**Returns**
+**Callback Signature**
 
 *nothing*
 
@@ -290,10 +295,11 @@ Get size of an account’s code.
 **Parameters**
 
 -   `addressOffset` **i32ptr** the memory offset to load the address from (`address`)
+-   `callBackIndex` **i32** an index of the callback function
 
-**Returns**
+**Callback Signature**
 
-`extCodeSize` **i32**
+- `extCodeSize` **i32**
 
 ## getGasLeft
 
