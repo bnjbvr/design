@@ -161,8 +161,9 @@ Store 256-bit a value in memory to persistent storage
 
 -   `pathOffest` **i32ptr** the memory offset to load the path from (`u256`)
 -   `valueOffset` **i32ptr** the memory offset to load the value from (`u256`)
+-   `callBackIndex` **i32** an index of the callback function
 
-**Returns**  
+**Callback Signature** 
 
 *nothing*
 
