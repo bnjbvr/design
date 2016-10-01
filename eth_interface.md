@@ -15,6 +15,9 @@ We also define the following WebAssembly data types:
 - `i32ptr`: same as `i32` in WebAssembly, but treated as a pointer to a WebAssembly memory offset
 - `i64`: same as `i64` in WebAssembly
 
+# Tables
+A table named 'callbacks' must be exported if any callbacks are used
+
 # API
 
 ## useGas
@@ -84,7 +87,7 @@ Sends a message with arbitrary date to a given address path
 -   `resultLength` **i32** the maximal length of result data
 -   `callBackIndex` **i32** an index of the callback function
 
-**Callback Signature**
+**Callback Index**
 
 - `result` **i32** 1 or 0 depending on if the VM trapped on the message or not
 
@@ -131,7 +134,7 @@ data passed with the message call instruction or transaction.
 -   `resultLength` **i32** the maximal length of result data
 -   `callBackIndex` **i32** an index of the callback function
 
-**Callback Signature**
+**Callback Index**
 
 - `result` **i32** 1 or 0 depending on if the VM trapped on the message or not
 
@@ -150,7 +153,7 @@ persisting the current values for sender and value.
 -   `resultLength` **i32** the maximal length of result data
 -   `callBackIndex` **i32** an index of the callback function
 
-**Callback Signature**
+**Callback Index**
 - `result` **i32** Returns 1 or 0 depending on if the VM trapped on the message or not
 
 ## storageStore
@@ -177,7 +180,7 @@ Loads a 256-bit a value to memory from persistent storage
 -   `resultOffset` **i32ptr** the memory offset to store the result at (`u256`)
 -   `callBackIndex` **i32** an index of the callback function
 
-**Callback Signature**  
+**Callback Index**  
 
 *nothing*
 
@@ -257,7 +260,7 @@ Creates a new contract with a given value.
 -   `resultOffset` **i32ptr** the memory offset to write the new contract address to (`address`)
 -   `callBackIndex` **i32** an index of the callback function
 
-**Callback Signature**
+**Callback Index**
 - `result` **i32** 1 or 0 depending on if the VM trapped on the message or not
 
 
@@ -298,7 +301,7 @@ Get size of an account’s code.
 -   `addressOffset` **i32ptr** the memory offset to load the address from (`address`)
 -   `callBackIndex` **i32** an index of the callback function
 
-**Callback Signature**
+**Callback Index**
 
 - `extCodeSize` **i32**
 
@@ -340,7 +343,7 @@ Gets price of gas in current environment.
 
 ## log
 
-Creates a new log in the current environment
+Creates a new loSignatureg in the current environment
 
 **Parameters**
 
